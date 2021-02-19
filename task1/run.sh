@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-path_to_dir=$1
+path_to_dir=$(realpath $1)
 file_extension=$2
 backup_dir_name=$3
 archieve_name=$4
@@ -13,6 +13,7 @@ recursive_search() {
     local path=$1
     for x in $(ls $path); do
         if [[ $(realpath $path/$x) != $(realpath $backup_dir_name) ]]; then 
+            echo processing $path/$x
             if [[ $x == $file_pattern ]]; then
                 mkdir -p $backup_dir_name/$path
                 cp $path/$x $backup_dir_name/$path
