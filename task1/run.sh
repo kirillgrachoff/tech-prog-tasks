@@ -13,7 +13,6 @@ recursive_search() {
     local path=$1
     for x in $(ls $path); do
         if [[ $(realpath $path/$x) != $(realpath $backup_dir_name) ]]; then 
-            echo processing $path/$x
             if [[ $x == $file_pattern ]]; then
                 mkdir -p $backup_dir_name/$path
                 cp $path/$x $backup_dir_name/$path
