@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 path_to_dir=$(realpath $1)
 file_extension=$2
