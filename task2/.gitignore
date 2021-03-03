@@ -1,4 +1,5 @@
 lib
+bin
 A/index.h
 .idea
 cmake-build-debug
