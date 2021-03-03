@@ -22,9 +22,9 @@ add_subdirectory(B)
 
 # main running
 include_directories(${PROJECT_SOURCE_DIR})
-add_executable(main ${PROJECT_SOURCE_DIR}/C/main.cpp)
-add_dependencies(main RunPreparing)
-target_link_libraries(main Greeter)
+add_executable(C ${PROJECT_SOURCE_DIR}/C/main.cpp)
+add_dependencies(C RunPreparing)
+target_link_libraries(C Greeter)
 
 # main testing
 find_package(GTest REQUIRED)
