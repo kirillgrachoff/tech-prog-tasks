@@ -4,12 +4,6 @@
 #include <vector>
 #include <random>
 
-TEST(greeting, manual) {
-    Greeter g;
-    ASSERT_TRUE(g.greet("Kirill") =="Hello, Kirill!");
-    ASSERT_FALSE(g.greet("Kirill") == "Kirill");
-}
-
 std::vector<std::string> randomNames() {
     std::vector<std::string> ans(10);
     std::random_device rand;
