@@ -1,4 +1,5 @@
 #include "C/main.h"
+#include "A/index.h"
 #include <gtest/gtest.h>
 #include <vector>
 #include <random>
@@ -28,4 +29,8 @@ TEST(greeting, benchmarks) {
         int idx = i % names.size();
         ASSERT_TRUE(g.greet(names[idx]) == "Hello, " + names[idx] + "!");
     }
+}
+
+TEST(index_file, manual) {
+    ASSERT_TRUE(checkIfCorrect());
 }
