@@ -27,9 +27,13 @@ add_dependencies(C RunPreparing)
 target_link_libraries(C Greeter)
 
 # main testing
+
+enable_testing()
+
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(CTest ${PROJECT_SOURCE_DIR}/C/main_test.cpp)
 add_dependencies(CTest RunPreparing)
 target_link_libraries(CTest ${GTEST_LIBRARIES} pthread Greeter)
+add_test(NAME TestAll COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/CTest)
