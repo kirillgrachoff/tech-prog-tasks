@@ -4,13 +4,13 @@ project(TP-Cmake-Task)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
 # python generation
 add_custom_command(
-        OUTPUT ${CMAKE_SOURCE_DIR}/A/index.h
-        COMMAND python3 ${PROJECT_SOURCE_DIR}/A/preparing.py ${CMAKE_SOURCE_DIR}/A/index.h
+        OUTPUT ${PROJECT_SOURCE_DIR}/A/index.h
+        COMMAND python3 ${PROJECT_SOURCE_DIR}/A/preparing.py ${PROJECT_SOURCE_DIR}/A/index.h
         DEPENDS ${PROJECT_SOURCE_DIR}/A/preparing.py
         COMMENT "Generating index.h"
 )
