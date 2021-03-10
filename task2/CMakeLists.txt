@@ -21,15 +21,16 @@ add_custom_target(RunPreparing DEPENDS ${PROJECT_SOURCE_DIR}/A/index.h)
 add_subdirectory(B)
 
 # main running
-include_directories(${PROJECT_SOURCE_DIR})
 add_executable(C ${PROJECT_SOURCE_DIR}/C/main.cpp)
+target_include_directories(C PUBLIC ${PROJECT_SOURCE_DIR})
 add_dependencies(C RunPreparing)
 target_link_libraries(C Greeter)
 
 # main testing
 find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+find_package(Threads REQUIRED)
 
 add_executable(CTest ${PROJECT_SOURCE_DIR}/C/main_test.cpp)
+target_include_directories(CTest PUBLIC ${GTEST_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR})
 add_dependencies(CTest RunPreparing)
-target_link_libraries(CTest ${GTEST_LIBRARIES} pthread Greeter)
+target_link_libraries(CTest ${GTEST_LIBRARIES} Threads::Threads Greeter)
