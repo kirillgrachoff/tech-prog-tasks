@@ -1,0 +1,7 @@
+staff
+build
+lib*
+bin*
+cmake-build-debug
+*.sh
+*.swp
