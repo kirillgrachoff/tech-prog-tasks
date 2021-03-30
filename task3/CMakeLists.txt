@@ -29,10 +29,11 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 add_subdirectory(src)
 add_executable(Main main.cpp)
 add_executable(MainLib main_lib.cpp)
-
+target_include_directories(MainLib PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_link_libraries(MainLib buffer)
 
 install(TARGETS Main MainLib buffer
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
+    PUBLIC_HEADER DESTINATION include
 )
