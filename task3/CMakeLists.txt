@@ -3,8 +3,9 @@ project(SimpleLibrary)
 
 include_directories(include)
 
-if(${ARM_BUILD})
-    set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/bin/aarch64-linux-gnu-g++)
+if(ARM_BUILD)
+    message(STATUS "the toolchain path is ${TOOLCHAIN}")
+    set(CMAKE_CXX_COMPILER ${TOOLCHAIN})
     set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN})
     set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
     set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
