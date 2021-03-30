@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.13)
 
 if(${ARM_BUILD})
     # message(WARNING "the toolchain path is ${TOOLCHAIN}")
