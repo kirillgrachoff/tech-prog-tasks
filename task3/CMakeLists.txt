@@ -34,7 +34,7 @@ add_executable(MainLib main_lib.cpp)
 
 target_link_libraries(MainLib buffer)
 
-install(TARGETS Main MainLib
+install(TARGETS Main MainLib buffer
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
 )
