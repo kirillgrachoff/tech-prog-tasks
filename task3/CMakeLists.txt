@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.0)
 
 if(${ARM_BUILD})
     # message(WARNING "the toolchain path is ${TOOLCHAIN}")
@@ -34,7 +34,7 @@ add_executable(MainLib main_lib.cpp)
 
 target_link_libraries(MainLib buffer)
 
-install(TARGETS Main MainLib buffer
+install(TARGETS Main MainLib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
 )
