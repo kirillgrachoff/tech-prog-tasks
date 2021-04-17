@@ -4,10 +4,9 @@
 #include <boost/filesystem/path.hpp>
 
 class TreeTestCase : public ::testing::Test {
+    boost::filesystem::path testDirLocation;
 public:
-    static boost::filesystem::path& TestDirLocation();
+    boost::filesystem::path& TestDirLocation();
     void SetUp() override;
     void TearDown() override;
 };
-
-

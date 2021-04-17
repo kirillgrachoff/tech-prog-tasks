@@ -17,11 +17,11 @@ void TreeTestCase::SetUp() {
 
 void TreeTestCase::TearDown() {
     boost::filesystem::remove_all(TestDirLocation());
+    TestDirLocation() = "";
 }
 
 boost::filesystem::path& TreeTestCase::TestDirLocation() {
-    static boost::filesystem::path testing_dir_path;
-    return testing_dir_path;
+    return testDirLocation;
 }
 
 TEST_F(TreeTestCase, construction_test) {
