@@ -32,13 +32,6 @@ TEST_F(LeapTestCase, days_in_month) {
 }
 
 TEST_F(LeapTestCase, days_in_month_exceptions) {
-#ifndef GenerateXmlNoProblems
-    EXPECT_ANY_THROW(GetMonthDays(0, 10));
-    EXPECT_ANY_THROW(GetMonthDays(-1, 10));
-    EXPECT_ANY_THROW(GetMonthDays(10, 0));
-#else
-#warning DELETE THESE LINES
-#endif
     EXPECT_ANY_THROW(GetMonthDays(-1, 2));
     EXPECT_ANY_THROW(GetMonthDays(10, 13));
     EXPECT_ANY_THROW(GetMonthDays(10, -5));
