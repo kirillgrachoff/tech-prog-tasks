@@ -58,3 +58,10 @@ TEST_F(WeatherTestCase, exceptions) {
     w.SetApiKey("ApiKey");
     EXPECT_ANY_THROW(w.GetResponseForCity("London", cpr::Url{"http://api.openweathermap.org/data/2.5/forecast"}));
 }
+
+TEST_F(WeatherTestCase, response_for_city) {
+    Weather w;
+    w.SetApiKey("SuperMegaApiKey57");
+    EXPECT_ANY_THROW(w.GetTomorrowTemperature("London"));
+    EXPECT_ANY_THROW(w.GetTemperature("London"));
+}
