@@ -43,4 +43,4 @@ jobs:
         with:
           name: Distributive
           path: |
-            task5/install
+            task5/install/exe
