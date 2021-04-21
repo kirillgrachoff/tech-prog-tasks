@@ -9,7 +9,7 @@ on:
     branches: [task5]
 
 jobs:
-  Build:
+  Configure:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,34 +22,37 @@ jobs:
           cmake-version: '3.16.x'
 
       # Runs a single command using the runners shell
-      - name: Run cmake
+      - name: Build
         run: |
           cd task5
           mkdir build
           cd build
-          cmake .. -DCMAKE_INSTALL_PREFIX=$ORIGIN/install
+          cmake .. -DCMAKE_INSTALL_PREFIX=../install
           cmake --build .
           cmake --install .
       
-      - name: Upload artifacts
+      - run: ls -la task5
+
+      - run: |
+          mkdir task5/working-directory
+          mkdir task5/report
+
+      - name: Test
+        uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+        with:
+          exec-path: task5/bin/CTestExe
+          report-path: task5/report
+          working-directory: task5/working-directory
+      
+      - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
           name: current-build
           path: |
             task5/install
-      - run: ls -la install
 
-  # Test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "I'm testing now"
-
-  #     - name: Downloading artifacts
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: current-build
-  #     - name: list structure
-  #       run: ls -la task5
-
-      # - name: Akht script doing
-      #   uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      - name: UploadArtifacts2
+        uses: actions/upload-artifact@v2
+        with:
+          name: current-report
+          path: task5/report
