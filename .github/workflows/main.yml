@@ -37,9 +37,6 @@ jobs:
           exec-path: bin/CTestExe
           report-path: report
           working-directory: task5
-      
-      - run: |
-          ls -la task5
 
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
@@ -47,9 +44,3 @@ jobs:
           name: current-build
           path: |
             task5/install
-
-      - name: UploadArtifacts2
-        uses: actions/upload-artifact@v2
-        with:
-          name: current-report
-          path: task5/report
