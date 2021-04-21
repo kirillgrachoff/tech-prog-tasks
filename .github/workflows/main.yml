@@ -44,7 +44,7 @@ jobs:
       
       - run: |
           ls -la task5
-          ls -la task5/workind-directory
+          ls -la task5/working-directory
           ls -la task5/report
 
       - name: UploadArtifacts
