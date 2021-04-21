@@ -30,7 +30,25 @@ jobs:
           cmake ..
           cmake --build .
           cd ..
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "I'm testing now"
+      
+      - name: Install
+        run: |
+          cd build
+          cmake --install .
+          cd ..
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: current-build
+          path: |
+            ./bin
+            ./lib
+
+  # Test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "I'm testing now"
+
+  #     - name: Akht script doing
+  #       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
