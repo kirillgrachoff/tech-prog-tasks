@@ -39,10 +39,17 @@ jobs:
             task5/bin
             task5/lib
 
-  # Test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "I'm testing now"
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I'm testing now"
 
-  #     - name: Akht script doing
-  #       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      - name: Downloading artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: current-build
+      - name: list structure
+        run: ls -la task5
+
+      # - name: Akht script doing
+      #   uses: akhtyamovpavel/ActionGtestReport@v0.0.9
