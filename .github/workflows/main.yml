@@ -27,29 +27,29 @@ jobs:
           cd task5
           mkdir build
           cd build
-          cmake ..
+          cmake .. -DCMAKE_INSTALL_PREFIX=$ORIGIN/install
           cmake --build .
-          cd ..
+          cmake --install .
       
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: current-build
           path: |
-            task5/bin
-            task5/lib
+            task5/install
+      - run: ls -la install
 
-  Test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "I'm testing now"
+  # Test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "I'm testing now"
 
-      - name: Downloading artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: current-build
-      - name: list structure
-        run: ls -la task5
+  #     - name: Downloading artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: current-build
+  #     - name: list structure
+  #       run: ls -la task5
 
       # - name: Akht script doing
       #   uses: akhtyamovpavel/ActionGtestReport@v0.0.9
