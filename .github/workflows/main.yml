@@ -31,9 +31,6 @@ jobs:
           cmake --build .
           cmake --install .
 
-      - run: |
-          mkdir task5/report
-
       - name: Test
         uses: akhtyamovpavel/ActionGtestReport@v0.0.9
         with:
@@ -43,7 +40,6 @@ jobs:
       
       - run: |
           ls -la task5
-          ls -la task5/report
 
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
