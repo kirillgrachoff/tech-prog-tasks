@@ -38,7 +38,7 @@ jobs:
         uses: akhtyamovpavel/ActionGtestReport@v0.0.9
         with:
           exec-path: bin/CTestExe
-          report-path: task5/report
+          report-path: report
           working-directory: task5
       
       - run: |
