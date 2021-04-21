@@ -32,19 +32,17 @@ jobs:
           cmake --install .
 
       - run: |
-          mkdir task5/working-directory
           mkdir task5/report
 
       - name: Test
         uses: akhtyamovpavel/ActionGtestReport@v0.0.9
         with:
-          exec-path: task5/bin/CTestExe
+          exec-path: CTestExe
           report-path: task5/report
-          working-directory: task5/working-directory
+          working-directory: task5/bin
       
       - run: |
           ls -la task5
-          ls -la task5/working-directory
           ls -la task5/report
 
       - name: UploadArtifacts
