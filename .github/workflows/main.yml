@@ -31,13 +31,6 @@ jobs:
           cmake --build .
           cd ..
       
-      - name: Install
-        run: |
-          cd task5
-          cd build
-          cmake --install .
-          cd ..
-      
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
