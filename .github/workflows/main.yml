@@ -41,6 +41,6 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
-          name: current-build
+          name: Distributive
           path: |
             task5/install
