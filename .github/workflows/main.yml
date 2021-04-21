@@ -30,8 +30,6 @@ jobs:
           cmake .. -DCMAKE_INSTALL_PREFIX=../install
           cmake --build .
           cmake --install .
-      
-      - run: ls -la task5
 
       - run: |
           mkdir task5/working-directory
@@ -44,6 +42,11 @@ jobs:
           report-path: task5/report
           working-directory: task5/working-directory
       
+      - run: |
+          ls -la task5
+          ls -la task5/workind-directory
+          ls -la task5/report
+
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
