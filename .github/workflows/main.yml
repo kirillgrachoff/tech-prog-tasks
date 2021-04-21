@@ -37,9 +37,9 @@ jobs:
       - name: Test
         uses: akhtyamovpavel/ActionGtestReport@v0.0.9
         with:
-          exec-path: task5/bin/CTestExe
+          exec-path: bin/CTestExe
           report-path: task5/report
-          working-directory: $ORIGIN
+          working-directory: task5
       
       - run: |
           ls -la task5
