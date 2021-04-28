@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [task5]
+
+jobs:
+  Configure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: https://github.com/google/googletest
+          path: task5/googletest
+
+      - name: Build
+        run: |
+          export GOOGLE_TEST_DIR=task5/googletest
+          cd task5
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_INSTALL_PREFIX=../install
+          cmake --build .
+          cmake --install .
+      - name: Test
+        uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+        with:
+          exec-path: bin/CTestExe
+          report-path: report.xml
+          working-directory: task5
+
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Distributive
+          path: |
+            task5/install/exe
