@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/checkout@v2
-        with:
-          ref: google/googletest
-          path: task5/googletest
+
+      - name: Clone Googletest
+        run: |
+          git clone https://github.com/google/googletest task5/3rdparty/googletest
 
       - name: Build
         run: |
