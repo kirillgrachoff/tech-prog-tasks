@@ -20,7 +20,7 @@ jobs:
 
       - name: Build
         run: |
-          export GOOGLE_TEST_DIR=task5/googletest
+          export GOOGLE_TEST_DIR=3rdparty/googletest
           cd task5
           mkdir build
           cd build
