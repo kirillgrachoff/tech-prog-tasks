@@ -16,12 +16,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Setup cmake
-        uses: jwlawson/actions-setup-cmake@v1.8
-        with:
-          cmake-version: '3.16.x'
-
-      # Runs a single command using the runners shell
       - name: Build
         run: |
           cd task5
