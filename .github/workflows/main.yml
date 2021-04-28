@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
-          ref: https://github.com/google/googletest
+          ref: google/googletest
           path: task5/googletest
 
       - name: Build
