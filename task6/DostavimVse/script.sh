@@ -1,0 +1,2 @@
+./mvnw -v
+./mvnw package
