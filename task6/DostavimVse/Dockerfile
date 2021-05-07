@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ADD ./ /app
+ADD ./ /app/
 
 WORKDIR /app
-CMD bash script.sh
+CMD ./script.sh

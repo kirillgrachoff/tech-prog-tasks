@@ -2,34 +2,26 @@ version: '3.9'
 services:
   db:
     image: mysql:5.7
-    restart: always
     environment:
-      MYSQL_DATABASE: 'db'
-      # So you don't have to use root, but you can if you like
-    #   MYSQL_USER: 'user'
-      # You can use whatever password you like
-    #   MYSQL_PASSWORD: 'password'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'admin'
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=dostavim
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
+      - 3306:3306
     volumes:
-      - ./scripts/CREATE.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./scripts:/docker-entrypoint-initdb.d/
   web:
     build: ./DostavimVse
     depends_on:
       - db
     links:
-      - "db:db"
+      - db:db
     ports:
-      - '8080:8080'
+      - 8080:8080
     expose:
-      - '8080'
+      - 8080
 # networks:
 #   dostavimvse-net:
 #     name: custom_dostavimvse_net
 #     driver: bridge
+
+# docker run --rm -it -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=dostavim -v scripts:/docker-entrypoint-initdb.d/ -p 3306:3306 mysql:5.7
