@@ -20,7 +20,7 @@ services:
     volumes:
       - ./scripts/CREATE.sql:/docker-entrypoint-initdb.d/1.sql
   web:
-    build: ./DostavimVse/Dockerfile
+    build: ./DostavimVse
     depends_on:
       - db
     links:
