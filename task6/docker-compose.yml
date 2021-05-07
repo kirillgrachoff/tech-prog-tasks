@@ -19,9 +19,3 @@ services:
       - 8080:8080
     expose:
       - 8080
-# networks:
-#   dostavimvse-net:
-#     name: custom_dostavimvse_net
-#     driver: bridge
-
-# docker run --rm -it -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=dostavim -v scripts:/docker-entrypoint-initdb.d/ -p 3306:3306 mysql:5.7
