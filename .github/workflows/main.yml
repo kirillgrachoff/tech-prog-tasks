@@ -20,10 +20,6 @@ jobs:
           repository: google/googletest
           path: task5/3rdparty/googletest
 
-      #- name: Clone Googletest
-      #  run: |
-      #    git clone https://github.com/google/googletest task5/3rdparty/googletest
-
       - name: Build
         run: |
           export GOOGLE_TEST_DIR=3rdparty/googletest
